@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget{
         ),
        child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: EdgeInsetsGeometry.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget{
               Image(image: AssetImage('lib/images/Group.png')
               ),
                SizedBox(height: 40,),
-              RichText(text: TextSpan(
+              RichText(text: TextSpan( 
                   style: TextStyle(fontSize:24, fontWeight: FontWeight.bold ),
                   children: [
                     TextSpan(text: 'Run', style: TextStyle(color: Colors.white) ),
@@ -79,17 +79,26 @@ class HomeScreen extends StatelessWidget{
                   ),
                 ),
                 SizedBox(height: 6),
-               TextField(
-            decoration: InputDecoration(
-              hintText: 'Email Address',
-              fillColor: Color(0xff3A1f0f),
-              filled: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                 borderSide: BorderSide.none,
-              )
-            ),
-          ),
+              Container(
+                height: 62,
+                width: 398,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Color(0xff3A1f0f),
+                ),
+                 child: Center(
+                   child: TextField(
+                               decoration: InputDecoration(
+                                 hintText: 'Email Address',
+                                 fillColor: Color(0xff3A1f0f),
+                                 filled: true,
+                                 border: OutlineInputBorder(
+                                   borderRadius: BorderRadius.circular(30),
+                   borderSide: BorderSide.none,
+                                 )
+                               ),
+                             ),
+                 ),),
            SizedBox(height:10),
               Align(
                   alignment: Alignment.centerLeft,
@@ -99,32 +108,46 @@ class HomeScreen extends StatelessWidget{
                   ),
                 ),
                 SizedBox(height: 6),
-               TextField(
-                obscureText: true,
-            decoration: InputDecoration(
-              hintText: 'Enter Password',
-              fillColor: Color(0xff3A1f0f),
-              filled: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                 borderSide: BorderSide.none,
-              )
-            ),
-          ),
-           Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Forgot Password?",
-                      style: TextStyle(color: Colors.deepOrange, fontSize: 12),
-                    ),
-                  ),
+               Container(
+                height: 62,
+                width: 398,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Color(0xff3A1f0f),
                 ),
+                 child: Center(
+                   child: TextField(
+                    obscureText: true,
+                               decoration: InputDecoration(
+                                 hintText: 'Enter Password',
+                                 fillColor: Color(0xff3A1f0f),
+                                 filled: true,
+                                 border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                     borderSide: BorderSide.none,
+                                 )
+                               ),
+                             ),
+                 ),
+               ),
+               
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Forgot Password?",
+                          style: TextStyle(color: Colors.deepOrange, fontSize: 12),
+                        ),
+                      ),
+              ],
+            ),
+               
                  SizedBox(height: 10),
                 SizedBox(
-                  width: double.infinity,
-                  height: 50,
+                  width: 398,
+                  height: 68,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepOrange,
@@ -140,7 +163,7 @@ class HomeScreen extends StatelessWidget{
                     ),
                   ),
                 ),
-          SizedBox(height:10),
+          SizedBox(height:15),
            Row(
                   children:  [
                     Expanded(
@@ -161,8 +184,8 @@ class HomeScreen extends StatelessWidget{
                   children: [
                     Container(
                       
-                          width: 140,
-                          height: 48,
+                          width: 185,
+                          height: 52,
                           decoration: BoxDecoration(
                             color: Colors.white12,
                             borderRadius: BorderRadius.circular(30),),
@@ -182,8 +205,8 @@ class HomeScreen extends StatelessWidget{
                       ],
                     ),),
                     Container(
-                      width: 140,
-                      height: 48,
+                      width: 185,
+                      height: 52,
                       decoration: BoxDecoration(
                         color: Colors.white12,
                         borderRadius: BorderRadius.circular(30),
@@ -207,7 +230,7 @@ class HomeScreen extends StatelessWidget{
                       )
                   ],
                 ),
-                SizedBox(height: 80),
+                SizedBox(height: 50),
 
             Row(
             mainAxisAlignment: MainAxisAlignment.center,

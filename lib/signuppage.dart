@@ -33,10 +33,10 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 40,),
+              SizedBox(height: 32,),
               Image(image: AssetImage('lib/images/Group.png')
               ),
-               SizedBox(height: 40,),
+               SizedBox(height: 8,),
               RichText(text: TextSpan(
                   style: TextStyle(fontSize:24, fontWeight: FontWeight.bold ),
                   children: [
@@ -46,7 +46,7 @@ class _SignupScreenState extends State<SignupScreen> {
                    ]
                 )
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
                 Text("Start your Journey!",
                 style: TextStyle(
                   color: Colors.white,
@@ -54,7 +54,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                 ),
                 ),
-                SizedBox(height:6),
+                SizedBox(height:4),
                 Text(
                   "Enter your Register information",
                   textAlign: TextAlign.center,
@@ -63,7 +63,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     fontSize: 14,
                   ),
                 ),
-                SizedBox(height:40),
+                SizedBox(height:11),
                   Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -71,19 +71,30 @@ class _SignupScreenState extends State<SignupScreen> {
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                SizedBox(height: 6),
-               TextField(
-            decoration: InputDecoration(
-              hintText: 'Enter full name',
-              fillColor: Color(0xff3A1f0f),
-              filled: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                 borderSide: BorderSide.none,
-              )
-            ),
-          ),
-                SizedBox(height:10),
+                SizedBox(height: 4),
+               Container(
+                 width: 398,
+                      height: 68,
+                      decoration: BoxDecoration(
+                        color: Color(0xff3A1f0f),
+                        borderRadius: BorderRadius.circular(30),
+                        
+                        ),
+                 child: Center(
+                   child: TextField(
+                               decoration: InputDecoration(
+                                 hintText: 'Enter full name',
+                                 fillColor: Color(0xff3A1f0f),
+                                 filled: true,
+                                 border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                     borderSide: BorderSide.none,
+                                 )
+                               ),
+                             ),
+                 ),
+               ),
+                SizedBox(height:4),
                   Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -91,19 +102,30 @@ class _SignupScreenState extends State<SignupScreen> {
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                SizedBox(height: 6),
-               TextField(
-            decoration: InputDecoration(
-              hintText: 'Email Address',
-              fillColor: Color(0xff3A1f0f),
-              filled: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                 borderSide: BorderSide.none,
-              )
-            ),
-          ),
-           SizedBox(height:10),
+                SizedBox(height: 4),
+               Container(
+                 width: 398,
+                      height: 68,
+                      decoration: BoxDecoration(
+                        color: Color(0xff3A1f0f),
+                        borderRadius: BorderRadius.circular(30),
+                        
+                        ),
+                 child: Center(
+                   child: TextField(
+                               decoration: InputDecoration(
+                                 hintText: 'Email Address',
+                                 fillColor: Color(0xff3A1f0f),
+                                 filled: true,
+                                 border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                     borderSide: BorderSide.none,
+                                 )
+                               ),
+                             ),
+                 ),
+               ),
+           SizedBox(height:4),
               Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -111,19 +133,30 @@ class _SignupScreenState extends State<SignupScreen> {
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                SizedBox(height: 6),
-               TextField(
-                obscureText: true,
-            decoration: InputDecoration(
-              hintText: 'Enter Password',
-              fillColor: Color(0xff3A1f0f),
-              filled: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                 borderSide: BorderSide.none,
-              )
-            ),
-          ),
+                SizedBox(height: 4),
+               Container(
+                 width: 398,
+                      height: 68,
+                      decoration: BoxDecoration(
+                        color: Color(0xff3A1f0f),
+                        borderRadius: BorderRadius.circular(30),
+                        
+                        ),
+                 child: Center(
+                   child: TextField(
+                    obscureText: true,
+                               decoration: InputDecoration(
+                                 hintText: 'Enter Password',
+                                 fillColor: Color(0xff3A1f0f),
+                                 filled: true,
+                                 border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                     borderSide: BorderSide.none,
+                                 )
+                               ),
+                             ),
+                 ),
+               ),
           SizedBox(height: 10),
                   Row(
                   children: [
@@ -162,8 +195,8 @@ class _SignupScreenState extends State<SignupScreen> {
          ),
           SizedBox(height: 10),
                 SizedBox(
-                  width: double.infinity,
-                  height: 50,
+                  width: 398,
+                  height: 57,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepOrange,
@@ -197,14 +230,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ],
                 ), 
-                SizedBox(height: 15,),
+                SizedBox(height: 10,),
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       
-                          width: 120,
-                          height: 48,
+                          width: 115,
+                          height: 52,
                           decoration: BoxDecoration(
                             color: Colors.white12,
                             borderRadius: BorderRadius.circular(30),),
@@ -213,7 +246,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset('lib/images/google.png'),
-                        SizedBox(width: 5,),
+                        SizedBox(width: 2,),
                         Text('Google',
                         style: TextStyle(
                           color: Colors.white,fontSize: 16,
@@ -224,8 +257,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       ],
                     ),),
                      Container(
-                      width: 120,
-                      height: 48,
+                      width: 115,
+                      height: 52,
                       decoration: BoxDecoration(
                         color: Colors.white12,
                         borderRadius: BorderRadius.circular(30),
@@ -235,7 +268,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset('lib/images/strava.png',),
-                    SizedBox(width: 5,),
+                    SizedBox(width: 2,),
                     Text('Strava',
                     style: TextStyle(
                       color: Colors.white,fontSize: 16,
@@ -248,8 +281,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 )
                       ),
                     Container(
-                      width: 120,
-                      height: 48,
+                      width: 115,
+                      height: 52,
                       decoration: BoxDecoration(
                         color: Colors.white12,
                         borderRadius: BorderRadius.circular(30),
@@ -259,7 +292,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset('lib/images/apple.png',),
-                    SizedBox(width: 5,),
+                    SizedBox(width: 2,),
                     Text('Apple',
                     style: TextStyle(
                       color: Colors.white,fontSize: 16,
@@ -273,7 +306,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       )
                   ],
                 ),
-                SizedBox(height: 80),
+                SizedBox(height: 40),
 
             Row(
             mainAxisAlignment: MainAxisAlignment.center,

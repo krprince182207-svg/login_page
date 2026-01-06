@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'logout.dart';
+import 'availabilities.dart';
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -215,7 +215,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       onPressed: () {
                          print('Register');
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>LogoutScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => UserInfoScreen()),);
                       },
                       child: Text(
                         "Register",

@@ -4,174 +4,235 @@ import 'Signuppage.dart';
 import 'logout.dart';
 
 void main() {
-  runApp(ScreenUtilInit(
-    designSize: Size(428, 926),  // Base design dimensions
-    builder: (context, child) => MyApp(),
-  ));
+  runApp(
+    ScreenUtilInit(
+      designSize: const Size(428, 926),
+      builder: (context, child) => const MyApp(),
+    ),
+  );
 }
-class MyApp extends StatelessWidget{
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
-  Widget build(BuildContext context){
-    return MaterialApp(
+  Widget build(BuildContext context) {
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
   }
 }
-class HomeScreen extends StatelessWidget{
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
-  Widget build(BuildContext context){
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  bool isLoginAllowed = false;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      
-         body: Container(
-          
+      body: Container(
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Color(0xff3A1f0f),
-              Colors.black,
-              
-              
-               ],
+            colors: [Color(0xff3A1f0f), Colors.black],
           ),
         ),
-       child: SafeArea(
-        child: Padding(
-        padding: EdgeInsets.all(16),
-         
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 40.h,),
-                Image(image: AssetImage('lib/images/Group.png')
-                ),
-                 SizedBox(height: 40.h,),
-                RichText(text: TextSpan( 
-                    style: TextStyle(fontSize:24, fontWeight: FontWeight.bold ),
-                    children: [
-                      TextSpan(text: 'Run', style: TextStyle(color: Colors.white) ),
-                      
-                      TextSpan(text: 'mate', style: TextStyle(color: Colors.deepOrange) ),
-                     ]
-                  )
-                  ),
-                  SizedBox(height: 20.h,),
-                  Text("Welcome Back!",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.sp,
-            
-                  ),
-                  ),
-                  SizedBox(height:6.h),
-                  Text(
-                    "Enter valid user name & password \nto continue",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.sp,
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: SingleChildScrollView(
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 40.h),
+                    const Image(image: AssetImage('lib/images/Group.png')),
+
+                    SizedBox(height: 40.h),
+                     RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: 'Run',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          TextSpan(
+                            text: 'mate',
+                            style: TextStyle(color: Colors.deepOrange),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(height:40.h),
+
+                    SizedBox(height: 20.h),
+                    Text(
+                      "Welcome Back!",
+                      style: TextStyle(color: Colors.white, fontSize: 22.sp),
+                    ),
+
+                    SizedBox(height: 6.h),
+                    Text(
+                      "Enter valid user name & password \nto continue",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                    ),
+
+                    SizedBox(height: 40.h),
+
                     Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Email',
-                      style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Email',
+                        style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 6.h),
-                Container(
+                    SizedBox(height: 6.h),
+
+                    
+                    TextFormField(
+                      controller: emailController,
+                      style: const TextStyle(color: Colors.white),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Email is required";
+                        }
+
+                        final emailRegex = RegExp(
+                          r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                        );
+
+                        if (!emailRegex.hasMatch(value)) {
+                          return "Enter a valid email";
+                        }
+
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        prefixIcon:
+                            const Icon(Icons.email, color: Colors.white70),
+                        hintText: 'Email Address',
+                        hintStyle:
+                            const TextStyle(color: Colors.white54),
+                        filled: true,
+                        fillColor: const Color(0xff3A1f0f),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(100),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 10.h),
+
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Password',
+                        style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                      ),
+                    ),
+                    SizedBox(height: 6.h),
+
                  
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xff3A1f0f),
-                  ),
-                   child: Center(
-                     child: TextField(
-                                 decoration: InputDecoration(
-                                   prefixIcon:Icon(Icons.email,) ,
-                                   hintText: 'Email Address',
-                                   fillColor: Color(0xff3A1f0f),
-                                   filled: true,
-                                   border: OutlineInputBorder(
-                                     borderRadius: BorderRadius.circular(100),
-                     borderSide: BorderSide.none,
-                                   )
-                                 ),
-                               ),
-                   ),),
-             SizedBox(height:10.h),
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Password',
-                      style: TextStyle(color: Colors.white, fontSize: 15.sp),
-                    ),
-                  ),
-                  SizedBox(height: 6.h),
-                 Container(
-                  
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xff3A1f0f),
-                  ),
-                   child: Center(
-                     child: TextField(
+                    TextFormField(
+                      controller: passwordController,
                       obscureText: true,
-                                 decoration: InputDecoration(
-                                    prefixIcon:Icon(Icons.lock,) ,
-                                   hintText: 'Enter Password',
-                                   suffixIcon:Icon(Icons.visibility_off,) ,
-                                   fillColor: Color(0xff3A1f0f),
-                                   filled: true,
-                                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100),
-                       borderSide: BorderSide.none,
-                                   )
-                                 ),
-                               ),
-                   ),
-                 ),
-                 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            "Forgot Password?",
-                            style: TextStyle(color: Colors.deepOrange, fontSize: 12),
+                      style: const TextStyle(color: Colors.white),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Password is required";
+                        }
+
+                        if (value.length < 6 || value.length > 8) {
+                          return "Password must be 6–8 characters";
+                        }
+
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        prefixIcon:
+                            const Icon(Icons.lock, color: Colors.white70),
+                        suffixIcon: const Icon(Icons.visibility_off,
+                            color: Colors.white70),
+                        hintText: 'Enter Password',
+                        hintStyle:
+                            const TextStyle(color: Colors.white54),
+                        filled: true,
+                        fillColor: const Color(0xff3A1f0f),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(100),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 20.h),
+
+                    SizedBox(
+                      width: 398,
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.deepOrange,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
                           ),
                         ),
-                ],
-              ),
-                 
-                   SizedBox(height: 10.h),
-                  SizedBox(
-                   width: 398,
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepOrange,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text("Login Successful"),
+                                backgroundColor: Colors.green,
+                              ),
+                            );
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LogoutScreen(),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    "Enter valid email and password"),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
+                          }
+                        },
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                      onPressed: () {},
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: 18.sp, fontWeight: FontWeight.bold),
-                      ),
                     ),
-                  ),
-            SizedBox(height:15.h),
+                       SizedBox(height:15.h),
              Row(
                     children:  [
                       Expanded(
@@ -243,37 +304,43 @@ class HomeScreen extends StatelessWidget{
                       )
                     ],
                   ),
-                  SizedBox(height: 50.h),
-            
-              Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-               Text(
-               "Haven’t any account?",
-            style: TextStyle(color: Colors.white70, fontSize: 14.sp),
-                     ),
-             SizedBox(width: 6.w),
-                     TextButton(onPressed: (){
-                print('signup');
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>SignupScreen()));
-                     }, 
-                        
-                 child:  Text(
-                        "Sign up",
-                 style: TextStyle(
-                 color: Colors.deepOrange,
-                  fontSize: 14.sp,
-                 fontWeight: FontWeight.bold,
-                 ),)
+                    SizedBox(height: 50.h),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Haven’t any account?",
+                          style: TextStyle(
+                              color: Colors.white70, fontSize: 14.sp),
+                        ),
+                        SizedBox(width: 6.w),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignupScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Sign up",
+                            style: TextStyle(
+                              color: Colors.deepOrange,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-                     
-                   ],
-                 ),     
-              ]
-              
             ),
           ),
-          )),
+        ),
       ),
     );
   }
